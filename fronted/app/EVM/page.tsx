@@ -20,7 +20,7 @@ export default function ConnectButton() {
   async function bind() {
     if (address && suiAccount) {
       try {
-        const blob = await storeAddressesOnWalrus(address, suiAccount.address);
+        const blob = await storeAddressesOnWalrus(address, suiAccount.address) as unknown as { blobId: string; [key: string]: any };
         setBlobId(blob.blobId);
         setSelectedOption('blob')
       } catch (error) {

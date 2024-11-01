@@ -1,6 +1,4 @@
 import { Inter } from 'next/font/google'
-import '../'
-
 const inter = Inter({ subsets: ['latin'] })
 
 import { headers } from 'next/headers' // added

@@ -31,8 +31,10 @@ const myFont = localFont({
 
 export default function RootLayout({
   children,
+  cookies = null, 
 }: Readonly<{
   children: React.ReactNode;
+  cookies: string | null;
 }>) {
   // const cookies = headers().get('cookie')
   return (
@@ -42,7 +44,7 @@ export default function RootLayout({
     
     <QueryClientProvider client={queryClient}>
       <SuiClientProvider networks={networkConfig} defaultNetwork="testnet">
-      <ContextProvider >
+      <ContextProvider cookies={cookies}>
         <WalletProvider>
             <div className={myFont.className} >
             <TopNav />
