@@ -14,13 +14,13 @@ const client = new SuiClient({ url: rpcUrl });
 const secretKey = process.env.NEXT_PUBLIC_PRIVATEKEY;
 const keypair = Ed25519Keypair.fromSecretKey(secretKey!);
 
-const isSynced = localStorage.getItem('syncResult');
-const isClaimed= localStorage.getItem('claimResult');
-
 export default function useContract() {
 
     const [syncResult, setSyncResult] = useState('');
     const [claimResult, setClaimResult] = useState('');
+
+    const isSynced = typeof window !== 'undefined' ? localStorage.getItem('syncResult') : null;
+    const isClaimed = typeof window !== 'undefined' ? localStorage.getItem('claimResult') : null;
 
     const handleSync = async (addresses: string[]) => {
         if (isSynced === 'true'){
