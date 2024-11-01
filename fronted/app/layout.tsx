@@ -33,8 +33,8 @@ export default function RootLayout({
   children,
   cookies = null, 
 }: Readonly<{
-  children: React.ReactNode;
-  cookies: string | null;
+  children: React.ReactNode,
+  cookies: string | null
 }>) {
   // const cookies = headers().get('cookie')
   return (

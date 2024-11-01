@@ -9,7 +9,7 @@ export default function Transfer() {
       <>
         <div className=' border-2 rounded-xl p-4 mr-3 flex flex-col items-center justify-center h-full'>
           <div>
-            <p className='text-4xl'>Transfer use Wormhole</p>
+            <p className='text-4xl'>Transfer through Wormhole</p>
           </div>
           <Field className="w-full flex flex-col items-center">
             <Input

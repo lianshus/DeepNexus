@@ -13,14 +13,14 @@ export default function ConnectButton() {
   const { address, } = useAccount()
   const { disconnect } = useDisconnect();
   const suiAccount = useCurrentAccount();
-  const { handleSync,claimResult,syncResult } = useContract();
+  const { handleSync, claimResult, syncResult } = useContract();
   const [selectedOption, setSelectedOption] = useState<string | null>('bind');
 
   const [blobId, setBlobId] = useState('');
   async function bind() {
     if (address && suiAccount) {
       try {
-        const blob = await storeAddressesOnWalrus(address, suiAccount.address) as unknown as { blobId: string; [key: string]: any };
+        const blob = await storeAddressesOnWalrus(address, suiAccount.address) as unknown as { blobId: string;[key: string]: any };
         setBlobId(blob.blobId);
         setSelectedOption('blob')
       } catch (error) {
@@ -32,7 +32,7 @@ export default function ConnectButton() {
   async function sync() {
     if (address && suiAccount) {
       try {
-        const addresses:string[] = [suiAccount.address as string]
+        const addresses: string[] = [suiAccount.address as string]
         await handleSync(addresses);
       } catch (error) {
         console.error("Failed to store addresses:", error);
@@ -43,12 +43,12 @@ export default function ConnectButton() {
     if (syncResult) {
       setSelectedOption('sync-success');
     }
-  }, [syncResult]); 
+  }, [syncResult]);
   useEffect(() => {
     if (claimResult) {
       setSelectedOption('claim-success');
     }
-  }, [claimResult]); 
+  }, [claimResult]);
 
   const renderLeftContent = () => {
     console.log('Selected Option:', selectedOption); // 调试输出
@@ -77,7 +77,7 @@ export default function ConnectButton() {
                     <div onClick={() => bind()} className='hover:bg-customPopover hover:text-white w-1/2 mr-5 h-full border flex items-center justify-center bg-[#F2F4F4] rounded-xl'>
                       Bind Accounts
                     </div>
-            
+
                     <div className='hover:bg-customPopover hover:text-white w-1/2 h-full border flex items-center justify-center bg-[#F2F4F4] rounded-xl'
                       onClick={() => disconnect()}>
                       Disconnect
@@ -106,14 +106,14 @@ export default function ConnectButton() {
                 <div className='h-full flex flex-col items-center justify-center text-black  bg-white border-2 rounded-xl p-4 z-50 mr-3'>
                   <div className='text-3xl'>Bind Successfully</div>
                   <div className='mt-5 mb-5 text-center'>
-                    <p className='text-lg'>Walrus Blob Id:</p> 
+                    <p className='text-lg'>Walrus Blob Id:</p>
                     <p className='text-sm text-red-400'>{blobId}</p>
                   </div>
                   <div className='text-lg mt-5 h-16 flex items-center justify-center text-center'>
                     Now you can sync to sui!
                   </div>
                   <div className='text-lg w-full mt-5 h-16 flex flex-row'>
-                   
+
                     <div onClick={() => sync()} className='hover:bg-customPopover hover:text-white w-1/2 mr-5 h-full border flex items-center justify-center bg-[#F2F4F4] rounded-xl'>
                       Sync to sui
                     </div>
@@ -140,12 +140,12 @@ export default function ConnectButton() {
       case 'claim':
         return (
           <>
-          <Claim/>    
+            <Claim />
           </>
         );
       case 'transfer':
         return (
-        <Transfer/>
+          <Transfer />
         );
       case 'more':
         return (
@@ -155,7 +155,7 @@ export default function ConnectButton() {
             </div>
           </>
         );;
-        case 'sync-success':
+      case 'sync-success':
         return (
           <>
             <div className='flex flex-col items-center justify-center h-full text-3xl'>
@@ -164,23 +164,23 @@ export default function ConnectButton() {
               <p className='mt-10'>
                 Digest:
                 {syncResult}
-                </p>
+              </p>
             </div>
           </>
         );;
-        case 'claim-success':
-          return (
-            <>
-              <div className='flex flex-col items-center justify-center h-full text-3xl'>
-                <p>Congratulations!</p>
-                <p>You have successfully claim! You can check in your wallet later...</p>
-                <p className='mt-10'>Digest:{claimResult}</p>
-              </div>
-            </>
-          );;
-        
-      
-        default:
+      case 'claim-success':
+        return (
+          <>
+            <div className='flex flex-col items-center justify-center h-full text-3xl'>
+              <p>Congratulations!</p>
+              <p>You have successfully claim! You can check in your wallet later...</p>
+              <p className='mt-10'>Digest:{claimResult}</p>
+            </div>
+          </>
+        );;
+
+
+      default:
         return (
           <>
             {
@@ -342,7 +342,7 @@ mr-10
                 />
               </div>
               <div className='flex flex-col'>
-                <p className='text-2xl text-black'>Transfer By Wormhole</p>
+                <p className='text-2xl text-black'>With Wormhole</p>
                 <p className='text-sm text-gray-500'>you can transfer your token use </p>
               </div>
             </div>
@@ -358,8 +358,10 @@ mr-10
                 />
               </div>
               <div className='flex flex-col'>
-                <p className='text-2xl text-black'>And more ...</p>
-                <p className='text-sm text-gray-500'>you can transfer your ... to ...</p>
+                <p className='text-2xl text-black'>And more</p>
+                <p className='text-sm text-gray-500'>
+                  ...
+                </p>
               </div>
             </div>
           </div>

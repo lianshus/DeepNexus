@@ -7,7 +7,7 @@ export default async function storeAddressesOnWalrus(address:`0x${string}`,suiAc
     evmAddress: address,
     suiAddress: suiAccount,
   };
-  
+  const a = toast.loading('Waiting for binding ...');
 
   try {
     const response = await fetch(`${basePublisherUrl}/v1/store?epochs=${numEpochs}`, {
@@ -22,10 +22,11 @@ export default async function storeAddressesOnWalrus(address:`0x${string}`,suiAc
       const result = await response.json();
       let blobObject;
       if(result.newlyCreated){
-        toast.success("Addresses binded successfully!");
+        
+        toast.success("Addresses binded successfully!",{id:a});
         blobObject = result.newlyCreated.blobObject;
       }else{
-        toast.error("You have already stored this address!");
+        toast.error("You have already stored this address!",{id:a});
         blobObject = result.alreadyCertified;
       }
       console.log("Blob Object:", blobObject);

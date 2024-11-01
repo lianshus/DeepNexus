@@ -28,12 +28,13 @@ export default function useContract() {
             return;
         }
         const tx = createTransaction("sync", addresses);
+        const a = toast.loading('Waiting for syncing ...');
         const result = await client.signAndExecuteTransaction(
             { transaction: tx, signer: keypair },
         )
         await client.waitForTransaction({ digest: result.digest });
         if (result.digest) {
-            toast.success("Sync successfully");
+            toast.success("Sync successfully",{id:a});
             setSyncResult(result.digest)
             localStorage.setItem("syncResult", 'true')
             console.log(result.digest)
@@ -46,11 +47,12 @@ export default function useContract() {
             return;
         }
         const tx = createTransaction("claim", [], address);
+        const a = toast.loading('Waiting for claiming ...');
         const result = await client.signAndExecuteTransaction(
             { transaction: tx, signer: keypair },
         )
         if (result.digest) {
-            toast.success("Claim successfully,you can check your wallet");
+            toast.success("Claim successfully,you can check your wallet",{id:a});
             setClaimResult(result.digest)
             localStorage.setItem("claimResult", 'true')
             console.log(result.digest)

@@ -10,7 +10,11 @@ export default function Home() {
   return (
     <main className="w-full bg-mainpage">
       <ParticlesBg type="cobweb" color="#4150B5"
-      bg={true} 
+      bg={true ? {
+        position: "absolute",
+        zIndex: 1,
+        width: '100%'
+      } : undefined} 
       />
         <div className="w-full h-full flex flex-col justify-center min-h-screen z-0">
           <div className="mt-16 ml-40 w-full max-w-7xl text-left">

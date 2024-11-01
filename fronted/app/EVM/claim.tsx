@@ -3,6 +3,7 @@ import { useCurrentAccount } from '@mysten/dapp-kit';
 import { Description, Field, Input, Label } from '@headlessui/react'
 import clsx from 'clsx';
 import useContract from '../hooks/useContract';
+import toast from 'react-hot-toast';
 export default function Claim() {
 
     const { handleClaim } = useContract();
