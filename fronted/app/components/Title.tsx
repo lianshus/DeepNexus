@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 export default function Title() {
-  const [title, setTitle] = useState('DeepSync')
+  const [title, setTitle] = useState('Deep Nexus')
   
 
   return (
@@ -12,7 +12,7 @@ export default function Title() {
            {title} 
         </div>
         <div className='text-2xl'>
-        Built on decentralized infrastructure, DeepSync delivers enterprise-grade analytics to drive project growth.
+        Built on Walrus, Deep Nexus delivers secure data storage and seamless service integration
         </div>
         
     </div>

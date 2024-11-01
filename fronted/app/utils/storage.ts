@@ -1,4 +1,5 @@
 
+import toast from "react-hot-toast";
 export default async function storeAddressesOnWalrus(address:`0x${string}`,suiAccount:string):Promise<void> {
   const basePublisherUrl = "https://publisher.walrus-testnet.walrus.space";
   const numEpochs = 1;
@@ -19,10 +20,14 @@ export default async function storeAddressesOnWalrus(address:`0x${string}`,suiAc
 
     if (response.ok) {
       const result = await response.json();
-      console.log("Stored addresses:", result);
-      alert("Addresses stored successfully!");
-
-      const blobObject = result.newlyCreated.blobObject;
+      let blobObject;
+      if(result.newlyCreated){
+        toast.success("Addresses binded successfully!");
+        blobObject = result.newlyCreated.blobObject;
+      }else{
+        toast.error("You have already stored this address!");
+        blobObject = result.alreadyCertified;
+      }
       console.log("Blob Object:", blobObject);
       return blobObject;
     } else {

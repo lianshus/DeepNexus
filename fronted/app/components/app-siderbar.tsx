@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, Search, Settings, BookAIcon } from "lucide-react"
+import { Home, Inbox, Search, Settings, BookAIcon } from "lucide-react"
 
 import {
     Sidebar,
