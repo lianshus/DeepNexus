@@ -173,7 +173,8 @@ export default function ConnectButton() {
             <div className='flex flex-col items-center justify-center h-full text-3xl'>
               <p>Congratulations!</p>
               <p>You have successfully claim! You can check in your wallet later...</p>
-              <p className='mt-10'>Digest:{claimResult}</p>
+              <p className='mt-10'>Digest:</p>
+                <p className='mt-4'>{claimResult}</p>
             </div>
           </>
         );;
