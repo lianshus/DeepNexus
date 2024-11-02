@@ -47,15 +47,17 @@ export default function useContract() {
             return;
         }
         const tx = createTransaction("claim", [], address);
-        const a = toast.loading('Waiting for claiming ...');
+        const b = toast.loading('Waiting for claiming ...');
         const result = await client.signAndExecuteTransaction(
             { transaction: tx, signer: keypair },
         )
         if (result.digest) {
-            toast.success("Claim successfully,you can check your wallet",{id:a});
+            toast.success("Claim successfully,you can check your wallet",{id:b});
             setClaimResult(result.digest)
             localStorage.setItem("claimResult", 'true')
             console.log(result.digest)
+        }else{
+            toast.error("Claim failed",{id:b});
         }
 
 
