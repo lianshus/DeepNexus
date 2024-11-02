@@ -23,15 +23,15 @@ export function TopNav() {
     return (
         <div className="flex w-full h-24 bg-nav flex-row  border-b-2 border-b-red z-50">
             <div className=" ml-5 w-1/3 flex flex-row text-white items-center">
-                {/* <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/logo.gif"
-          alt="Logo"
-          width={70}
-          height={40}
-          priority
-        /> */}
-                <p className="mt-1 text-4xl">DeepSync</p>
+                <Image
+                    className="relative mr-3 dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+                    src="/logo.svg"
+                    alt="Logo"
+                    width={40}
+                    height={40}
+                    priority
+                />
+                <p className="mt-1 text-4xl">Deep Nexus</p>
             </div>
             <div className="w-1/3 flex flex-between items-center bg-nav text-2xl">
                 <div className="w-1/4  text-white/50">
@@ -57,7 +57,7 @@ export function TopNav() {
                         rel="noopener noreferrer"
                         href={docsLink}
                         className="block text-white/50 focus:outline-none data-[active]:text-white data-[hover]:text-white data-[focus]:outline-1 data-[focus]:outline-white">
-                     Docs
+                        Docs
                     </a>
                 </div>
 

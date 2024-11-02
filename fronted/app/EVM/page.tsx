@@ -95,8 +95,7 @@ export default function ConnectButton() {
               )}
 
           </>
-        )
-          ;
+        );
 
       case 'blob':
         return (
@@ -158,7 +157,7 @@ export default function ConnectButton() {
       case 'sync-success':
         return (
           <>
-            <div className='flex flex-col items-center justify-center h-full text-3xl'>
+            <div className='flex flex-col items-center justify-center h-full text-2xl'>
               <p>Congratulations!</p>
               <p>You have successfully sync! You can claim you rewards later...</p>
               <p className='mt-10'>
@@ -198,17 +197,16 @@ export default function ConnectButton() {
 
 
                   <div className='text-lg mt-5 h-16 flex items-center justify-center text-center'>
-                    just something i write randomly just something
-                    i write randomlyjust something i write randomly
-                    maybe i can write some introduction to the sync here
+                    First,you need to bind the accounts and store them in the walrus.
                   </div>
                   <div className='text-lg w-full mt-5 h-16 flex flex-row'>
-                    <div className='w-1/2 mr-5 h-full border flex items-center justify-center bg-[#F2F4F4] rounded-xl'>
-                      Sync to sui
+                    <div onClick={() => bind()} className='hover:bg-customPopover hover:text-white w-1/2 mr-5 h-full border flex items-center justify-center bg-[#F2F4F4] rounded-xl'>
+                      Bind Accounts
                     </div>
-                    <div className='w-1/2 h-full border flex items-center justify-center bg-[#F2F4F4] rounded-xl'
+
+                    <div className='hover:bg-customPopover hover:text-white w-1/2 h-full border flex items-center justify-center bg-[#F2F4F4] rounded-xl'
                       onClick={() => disconnect()}>
-                      Discoonect
+                      Disconnect
                     </div>
                   </div>
 
@@ -223,8 +221,7 @@ export default function ConnectButton() {
               )}
 
           </>
-        )
-          ;
+        );
     }
   };
 
@@ -291,7 +288,7 @@ mr-10
           )}
 
         </div>
-        <div className='mt-36 border-t-2 border-[#dadae3]'>
+        <div className='mt-10 border-t-2 border-[#dadae3]'>
           <div className='mt-2 ml-2 flex flex-row text-black text-2xl'>
             Others
           </div>

@@ -25,7 +25,9 @@ export default function Home() {
           <div className="w-full mt-10">
             <MainButton/>
           </div>
-          
+          <div className="w-full h-20">
+            
+          </div>
         </div>
         
     </main>
