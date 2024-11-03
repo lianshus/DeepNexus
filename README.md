@@ -74,6 +74,10 @@ sequenceDiagram
     
     P->>H: Airdrop tokens
 ```
+### Wormhold Integration
+
+We plan to integrate the Wormhole SDK into our existing SDK. Once users connect both wallets, they'll be able to seamlessly transfer their Ethereum assets to the Sui ecosystem.
+
 
 ## Download the SDK
 
@@ -82,5 +86,6 @@ sequenceDiagram
 # Roadmap
 
 - Deep Sync: SDK for cross chain marketing
+- Wormhole Integration with Deep Sync
 - Deep Insight: A well-maintained analytics database
 - More
